@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+
+        <commentGenerator type="cn.com.MybatisCommentGenerator">
+            <property name="suppressDate" value="ture"/>
+            <property name="author" value=""/>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <!--<property name="suppressAllComments" value="false"/>-->
+        </commentGenerator>
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL=""
+                        userId=""
+                        password="">
+        </jdbcConnection>
+        <javaTypeResolver>
+        <!-- 默认情况下数据库中的 decimal，bigInt 在 Java 对应是 sql 下的 BigDecimal 类 -->
+        <!-- 不是 double 和 long 类型 -->
+        <!-- 使用常用的基本类型代替 sql 包下的引用类型 -->
+        <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <!--生成entity类存放位置-->
+        <javaModelGenerator targetPackage="com.wlt.hdm.product.persist.dbo.activity" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!--生成映射文件存放位置-->
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <!--生成Dao类存放位置-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.wlt.hdm.product.persist.mapper.activity"
+                             targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+        <table tableName="activity_template_coupon_activity_reltion" domainObjectName="ActivityTemplateCouponActivityReltion" enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <ignoreColumn column="_timestamp"/>
+            <columnOverride column="status" javaType="java.lang.Integer"/>
+            <columnOverride column="create_time" javaType="org.joda.time.DateTime"/>
+            <!--<columnOverride column="modified_date" javaType="org.joda.time.DateTime"/>-->
+        </table>
+        <!--<table tableName="activity_component_info" domainObjectName="ActivityComponentInfo" enableCountByExample="false" enableUpdateByExample="false"-->
+               <!--enableDeleteByExample="false" enableSelectByExample="false"-->
+               <!--selectByExampleQueryId="false">-->
+            <!--<ignoreColumn column="_timestamp"/>-->
+            <!--<columnOverride column="component_type" javaType="java.lang.Integer"/>-->
+            <!--<columnOverride column="show_mode" javaType="java.lang.Integer"/>-->
+            <!--<columnOverride column="is_show_view_more" javaType="java.lang.Integer"/>-->
+            <!--<columnOverride column="status" javaType="java.lang.Integer"/>-->
+            <!--<columnOverride column="create_time" javaType="org.joda.time.DateTime"/>-->
+        <!--</table>-->
+
+    </context>
+</generatorConfiguration>
